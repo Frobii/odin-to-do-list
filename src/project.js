@@ -1,22 +1,33 @@
 import loadProject from './project-domtools';
 import task from './task';
 
-export default function project(name) {
-  const taskList = Array.new;
+const project = () => {
+  const taskList = [];
+  let title = '';
 
-  this.name = name;
+  function setTitle(newTitle) {
+    title = newTitle;
+  }
+
+  function getTitle() {
+    return title;
+  }
 
   function newTask() {
 
   }
 
-  function rename() {
+  function deleteTask() {
 
   }
 
   return {
-    name,
+    getTitle,
+    setTitle,
     taskList,
     newTask,
+    deleteTask,
   };
-}
+};
+
+export default project;

@@ -1,8 +1,9 @@
-const loadProject = () => {
+export default function loadProject(project) {
   const main = document.querySelector('.main');
 
   const projectTitle = document.createElement('div');
   projectTitle.classList.add('project-title');
+  projectTitle.textContent = project.getTitle();
 
   const newTaskContainer = document.createElement('div');
   const taskCount = document.createElement('div');
@@ -19,14 +20,15 @@ const loadProject = () => {
   newTaskContainer.appendChild(taskCount);
   newTaskContainer.appendChild(newTaskButton);
   main.appendChild(currentTasks);
+}
 
-  return {
-    main,
-    projectTitle,
-    taskCount,
-    newTaskButton,
-    currentTasks,
-  };
-};
+// THIS USED TO BE A FACTORY FUNCTION
+//   return {
+//     main,
+//     projectTitle,
+//     taskCount,
+//     newTaskButton,
+//     currentTasks,
+//   };
 
-export default loadProject;
+// export default loadProject;

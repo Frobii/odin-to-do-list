@@ -1,23 +1,20 @@
-function task(name, dueDate) {
-  const dated = '';
-  const status = 'new';
-  const progress = 'pending';
+const task = () => {
+  const properties = {
+    name: '',
+    dated: '',
+    dueDate: '',
+    status: 'new',
+    progress: 'pending',
+  };
 
   function rename(newName) {
-
-  }
-
-  function remove() {
-
+    properties.name = newName;
   }
 
   return {
-    name,
-    dueDate,
-    dated,
-    status,
-    progress,
+    properties,
     rename,
-    remove,
   };
-}
+};
+
+export default task;
