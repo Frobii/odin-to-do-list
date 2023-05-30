@@ -20,3 +20,42 @@ body {
     color: white;
     background: linear-gradient(90deg, #7029b3c2, #03c0ffc2);
 }
+
+.project-title {
+    width: 80vw;
+    height: 100px;
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.614);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-left: 10vw;
+}
+
+.new-task-container {
+    width: 80vw;
+    height: 50px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.614);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.614);
+    border-radius: 2px;
+    margin-left: 10vw;
+}
+
+.new-task-button {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-image: url(./icons/icons8-plus-64.png);
+}
+
+.new-task-button:hover {
+    cursor: pointer;
+}

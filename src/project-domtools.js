@@ -3,14 +3,17 @@ export default function loadProject(project) {
 
   const projectTitle = document.createElement('div');
   projectTitle.classList.add('project-title');
+
   projectTitle.textContent = project.getTitle();
 
   const newTaskContainer = document.createElement('div');
   const taskCount = document.createElement('div');
-  const newTaskButton = document.createElement('button');
+  const newTaskButton = document.createElement('div');
   newTaskContainer.classList.add('new-task-container');
   taskCount.classList.add('task-count');
   newTaskButton.classList.add('new-task-button');
+
+  taskCount.textContent = 'Tasks:';
 
   const currentTasks = document.createElement('div');
   currentTasks.classList.add('current-tasks');
@@ -21,14 +24,3 @@ export default function loadProject(project) {
   newTaskContainer.appendChild(newTaskButton);
   main.appendChild(currentTasks);
 }
-
-// THIS USED TO BE A FACTORY FUNCTION
-//   return {
-//     main,
-//     projectTitle,
-//     taskCount,
-//     newTaskButton,
-//     currentTasks,
-//   };
-
-// export default loadProject;
