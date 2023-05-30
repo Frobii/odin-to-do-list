@@ -14,6 +14,9 @@ export default function loadProject(project) {
   newTaskButton.classList.add('new-task-button');
 
   taskCount.textContent = 'Tasks:';
+  newTaskButton.addEventListener('click', () => {
+    project.newTask();
+  });
 
   const currentTasks = document.createElement('div');
   currentTasks.classList.add('current-tasks');

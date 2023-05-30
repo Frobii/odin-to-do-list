@@ -14,11 +14,7 @@ const project = () => {
   }
 
   function newTask() {
-
-  }
-
-  function deleteTask() {
-
+    console.log('test');
   }
 
   return {
@@ -26,7 +22,6 @@ const project = () => {
     setTitle,
     taskList,
     newTask,
-    deleteTask,
   };
 };
 

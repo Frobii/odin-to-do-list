@@ -11,9 +11,14 @@ const task = () => {
     properties.name = newName;
   }
 
+  function deleteTask() {
+
+  }
+
   return {
     properties,
     rename,
+    deleteTask,
   };
 };
 
