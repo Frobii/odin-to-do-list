@@ -1,3 +1,5 @@
+import taskForm from './task-form';
+
 export default function loadProject(project) {
   const main = document.querySelector('.main');
 
@@ -15,7 +17,8 @@ export default function loadProject(project) {
 
   taskCount.textContent = 'Tasks:';
   newTaskButton.addEventListener('click', () => {
-    project.newTask();
+    taskForm().loadBackdrop();
+    taskForm().loadForm();
   });
 
   const currentTasks = document.createElement('div');
