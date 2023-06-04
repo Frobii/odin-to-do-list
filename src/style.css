@@ -11,6 +11,12 @@ body {
     margin: 0px; 
 }
 
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .header {
     height: 60px;
     width: 100vw;
@@ -31,11 +37,10 @@ body {
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin-left: 10vw;
 }
 
 .new-task-container {
-    width: 80vw;
+    width: min(80vw, 1000px);
     height: 50px;
     font-size: 2rem;
     font-weight: 600;
@@ -46,7 +51,6 @@ body {
     justify-content: space-between;
     border-bottom: 2px solid rgba(0, 0, 0, 0.614);
     border-radius: 2px;
-    margin-left: 10vw;
 }
 
 .new-task-button {
@@ -64,7 +68,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vh;
+    width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 998; 
@@ -74,11 +78,104 @@ body {
     background-color: white;
     border-radius: 2ch;
     z-index: 999;
-    width: 75vw;
+    width: min(75vw, 800px);
     height: 50vh;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
+}
+
+fieldset {
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset * {
+    padding-top: 20px;
+}
+
+legend {
+    color: rgba(0, 0, 0, 0.614);
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+label {
+    text-align: center;
+    font-size: 1.25rem;
+    padding-bottom: 10px;
+}
+
+input, textarea {
+    font-size: 1.25rem;
+    padding: 0px;
+}
+
+.date-labels {
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+.date-today {
+    font-size: 1.25rem;
+}
+
+.date-picker {
+    position: relative;
+    top: 20px;
+    height: 20px;
+}
+
+.task-input {
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
+.date-container {
+    display: flex;
+    justify-content: center;
+}
+
+.description-input {
+    position: relative;
+    left: 12.5%;
+    width: 75%;
+    height: 50%;
+    vertical-align: top;
+    resize: none;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    padding: 0px;
+    width: 80px;
+    height: 40px;
+    color: rgba(0, 0, 0, 0.614);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.614);
+}
+
+button:first-child {
+    margin-right: 20px;
+}
+
+button:hover, button:focus {
+    background-color: rgba(0, 0, 0, 0.614);
+    border: none;
+    color: white;
 }

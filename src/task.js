@@ -5,6 +5,7 @@ const task = () => {
     dueDate: '',
     status: 'new',
     progress: 'pending',
+    description: '',
   };
 
   function rename(newName) {
