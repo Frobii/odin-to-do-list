@@ -1,3 +1,5 @@
+import handleSubmit from './task-controller';
+
 const taskForm = () => {
   function loadBackdrop() {
     const formBackdrop = document.createElement('div');
@@ -21,9 +23,11 @@ const taskForm = () => {
     return todaysDate;
   }
 
-  function loadForm() {
+  function loadForm(project) {
+    loadBackdrop();
+
     const main = document.querySelector('.main');
-    const formContainer = document.createElement('form-container');
+    const formContainer = document.createElement('form');
     formContainer.classList.add('form-container');
 
     const fieldset = document.createElement('fieldset');
@@ -95,6 +99,10 @@ const taskForm = () => {
     buttonContainer.appendChild(cancelButton);
 
     fieldset.appendChild(buttonContainer);
+
+    formContainer.addEventListener('submit', (event) => {
+      handleSubmit(event, project);
+    });
   }
 
   return {

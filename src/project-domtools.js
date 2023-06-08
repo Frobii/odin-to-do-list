@@ -17,8 +17,7 @@ export default function loadProject(project) {
 
   taskCount.textContent = 'Tasks:';
   newTaskButton.addEventListener('click', () => {
-    taskForm().loadBackdrop();
-    taskForm().loadForm();
+    taskForm().loadForm(project);
   });
 
   const currentTasks = document.createElement('div');
