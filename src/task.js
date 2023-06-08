@@ -8,6 +8,14 @@ const task = () => {
     description: '',
   };
 
+  function setName(newName) {
+    properties.name = newName;
+  }
+
+  function getName() {
+    return properties.name;
+  }
+
   function rename(newName) {
     properties.name = newName;
   }
@@ -18,6 +26,8 @@ const task = () => {
 
   return {
     properties,
+    setName,
+    getName,
     rename,
     deleteTask,
   };

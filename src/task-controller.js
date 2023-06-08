@@ -3,7 +3,9 @@ import task from './task';
 export default function handleSubmit(event, project) {
   event.preventDefault();
 
-  console.log('hey!');
-  project.setTitle('helloooo');
-  console.log(project.getTitle());
+  const newTask = task();
+  const name = document.querySelector('.task-input').value;
+  newTask.setName(name);
+
+  console.log(newTask.getName());
 }

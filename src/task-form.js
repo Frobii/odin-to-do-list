@@ -29,6 +29,8 @@ const taskForm = () => {
     const main = document.querySelector('.main');
     const formContainer = document.createElement('form');
     formContainer.classList.add('form-container');
+    formContainer.setAttribute('action', ' ');
+    formContainer.setAttribute('method', 'post');
 
     const fieldset = document.createElement('fieldset');
     const legend = document.createElement('legend');
