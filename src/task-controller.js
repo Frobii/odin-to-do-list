@@ -3,9 +3,17 @@ import task from './task';
 export default function handleSubmit(event, project) {
   event.preventDefault();
 
-  const newTask = task();
   const name = document.querySelector('.task-input').value;
-  newTask.setName(name);
+  const dateToday = document.querySelector('.date-today').textContent;
+  const dueDate = document.querySelector('.date-picker').value;
+  const description = document.querySelector('.description-input').value;
 
-  console.log(newTask.getName());
+  const newTask = task();
+  newTask.properties.name = name;
+  newTask.properties.dated = dateToday;
+  newTask.properties.dueDate = dueDate;
+  newTask.properties.description = description;
+
+  project.taskList.push(newTask);
+  console.log(project.taskList);
 }

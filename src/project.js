@@ -13,15 +13,15 @@ const project = () => {
     return title;
   }
 
-  function newTask() {
-    console.log('test');
+  function deleteTask() {
+
   }
 
   return {
-    getTitle,
-    setTitle,
     taskList,
-    newTask,
+    setTitle,
+    getTitle,
+    deleteTask,
   };
 };
 

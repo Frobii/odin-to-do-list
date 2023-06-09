@@ -3,33 +3,18 @@ const task = () => {
     name: '',
     dated: '',
     dueDate: '',
-    status: 'new',
-    progress: 'pending',
+    status: 'New',
+    progress: 'In Progress',
     description: '',
   };
 
-  function setName(newName) {
-    properties.name = newName;
-  }
-
-  function getName() {
-    return properties.name;
-  }
-
-  function rename(newName) {
-    properties.name = newName;
-  }
-
-  function deleteTask() {
+  function checkStatus() {
 
   }
 
   return {
     properties,
-    setName,
-    getName,
-    rename,
-    deleteTask,
+    checkStatus,
   };
 };
 
