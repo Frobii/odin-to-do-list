@@ -103,7 +103,8 @@ const taskForm = () => {
     fieldset.appendChild(buttonContainer);
 
     formContainer.addEventListener('submit', (event) => {
-      handleSubmit(event, project);
+      project.taskList.push(handleSubmit(event));
+      console.log(project.taskList);
     });
   }
 

@@ -1,6 +1,6 @@
 import task from './task';
 
-export default function handleSubmit(event, project) {
+export default function handleSubmit(event) {
   event.preventDefault();
 
   const name = document.querySelector('.task-input').value;
@@ -14,6 +14,5 @@ export default function handleSubmit(event, project) {
   newTask.properties.dueDate = dueDate;
   newTask.properties.description = description;
 
-  project.taskList.push(newTask);
-  console.log(project.taskList);
+  return newTask;
 }
