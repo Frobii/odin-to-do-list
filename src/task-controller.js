@@ -1,6 +1,6 @@
 import task from './task';
 
-export default function handleSubmit(event) {
+export function handleSubmit(event) {
   event.preventDefault();
 
   const name = document.querySelector('.task-input').value;
@@ -15,4 +15,45 @@ export default function handleSubmit(event) {
   newTask.properties.description = description;
 
   return newTask;
+}
+
+export function displayNewTask(project) {
+  const newestTask = project.taskList[0].properties;
+
+  const taskListContainer = document.querySelector('.current-tasks');
+
+  const taskContainer = document.createElement('div');
+  taskContainer.classList.add('task-container');
+
+  const name = document.createElement('div');
+  name.classList.add('task-name');
+  name.textContent = newestTask.name;
+
+  const dated = document.createElement('div');
+  dated.classList.add('task-dated');
+  dated.textContent = newestTask.dated;
+
+  const due = document.createElement('div');
+  due.classList.add('task-due');
+  due.textContent = newestTask.dueDate;
+
+  const status = document.createElement('div');
+  status.classList.add('task-status');
+  status.textContent = newestTask.status;
+
+  const progress = document.createElement('div');
+  progress.classList.add('task-progress');
+  progress.textContent = newestTask.progress;
+
+  const description = document.createElement('div');
+  description.classList.add('task-description');
+  description.textContent = newestTask.description;
+
+  taskListContainer.prepend(taskContainer);
+  taskContainer.appendChild(status);
+  taskContainer.appendChild(name);
+  taskContainer.appendChild(description);
+  taskContainer.appendChild(dated);
+  taskContainer.appendChild(due);
+  taskContainer.appendChild(progress);
 }

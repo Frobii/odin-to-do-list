@@ -1,4 +1,4 @@
-import handleSubmit from './task-controller';
+import { handleSubmit, displayNewTask } from './task-controller';
 
 const taskForm = () => {
   function loadBackdrop() {
@@ -102,9 +102,11 @@ const taskForm = () => {
 
     fieldset.appendChild(buttonContainer);
 
+    // turn this button into a module for better separation
+    // remember, the function in that module will need access to the project variable
     formContainer.addEventListener('submit', (event) => {
-      project.taskList.push(handleSubmit(event));
-      console.log(project.taskList);
+      project.taskList.unshift(handleSubmit(event));
+      displayNewTask(project);
     });
   }
 
