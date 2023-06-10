@@ -1,5 +1,51 @@
 import taskForm from './task-form';
 
+function loadExistingTasks(project) {
+  const projectArray = project.taskList;
+  if (projectArray.length > 0) {
+    projectArray.forEach((task) => {
+      const taskProperties = task.properties;
+
+      const taskListContainer = document.querySelector('.current-tasks');
+
+      const taskContainer = document.createElement('div');
+      taskContainer.classList.add('task-container');
+
+      const name = document.createElement('div');
+      name.classList.add('task-name');
+      name.textContent = taskProperties.name;
+
+      const dated = document.createElement('div');
+      dated.classList.add('task-dated');
+      dated.textContent = taskProperties.dated;
+
+      const due = document.createElement('div');
+      due.classList.add('task-due');
+      due.textContent = taskProperties.dueDate;
+
+      const status = document.createElement('div');
+      status.classList.add('task-status');
+      status.textContent = taskProperties.status;
+
+      const progress = document.createElement('div');
+      progress.classList.add('task-progress');
+      progress.textContent = taskProperties.progress;
+
+      const description = document.createElement('div');
+      description.classList.add('task-description');
+      description.textContent = taskProperties.description;
+
+      taskListContainer.prepend(taskContainer);
+      taskContainer.appendChild(status);
+      taskContainer.appendChild(name);
+      taskContainer.appendChild(description);
+      taskContainer.appendChild(dated);
+      taskContainer.appendChild(due);
+      taskContainer.appendChild(progress);
+    });
+  }
+}
+
 export default function loadProject(project) {
   const main = document.querySelector('.main');
 
@@ -28,4 +74,6 @@ export default function loadProject(project) {
   newTaskContainer.appendChild(taskCount);
   newTaskContainer.appendChild(newTaskButton);
   main.appendChild(currentTasks);
+
+  loadExistingTasks(project);
 }
