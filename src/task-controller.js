@@ -31,29 +31,29 @@ export function displayNewTask(project) {
 
   const dated = document.createElement('div');
   dated.classList.add('task-dated');
-  dated.textContent = newestTask.dated;
+  dated.innerHTML = `Created<br>${newestTask.dated}`;
 
   const due = document.createElement('div');
   due.classList.add('task-due');
-  due.textContent = newestTask.dueDate;
+  due.innerHTML = `Due<br>${newestTask.dueDate}`;
 
-  const status = document.createElement('div');
-  status.classList.add('task-status');
-  status.textContent = newestTask.status;
+  // const status = document.createElement('div');
+  // status.classList.add('task-status');
+  // status.textContent = newestTask.status;
 
-  const progress = document.createElement('div');
-  progress.classList.add('task-progress');
-  progress.textContent = newestTask.progress;
+  // const progress = document.createElement('div');
+  // progress.classList.add('task-progress');
+  // progress.textContent = newestTask.progress;
 
   const description = document.createElement('div');
   description.classList.add('task-description');
   description.textContent = newestTask.description;
 
   taskListContainer.prepend(taskContainer);
-  taskContainer.appendChild(status);
+  // taskContainer.appendChild(status);
   taskContainer.appendChild(name);
   taskContainer.appendChild(description);
   taskContainer.appendChild(dated);
   taskContainer.appendChild(due);
-  taskContainer.appendChild(progress);
+  // taskContainer.appendChild(progress);
 }

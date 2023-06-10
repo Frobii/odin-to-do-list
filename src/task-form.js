@@ -19,7 +19,7 @@ const taskForm = () => {
     const month = currentDate.getMonth() + 1;
     const day = currentDate.getDate();
 
-    const todaysDate = `${day}/${month}/${year}`;
+    const todaysDate = `${day}-${month}-${year}`;
     return todaysDate;
   }
 

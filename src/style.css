@@ -180,3 +180,25 @@ button:hover, button:focus {
     border: none;
     color: white;
 }
+
+.task-container {
+    width: min(75vw, 900px);
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr 1fr;
+}
+
+.task-container * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.task-name {
+    justify-content: flex-start;
+}
+
+.task-dated, .task-due {
+    justify-content: flex-end;
+}

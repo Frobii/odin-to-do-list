@@ -17,31 +17,31 @@ function loadExistingTasks(project) {
 
       const dated = document.createElement('div');
       dated.classList.add('task-dated');
-      dated.textContent = taskProperties.dated;
+      dated.innerHTML = `Created<br>${taskProperties.dated}`;
 
       const due = document.createElement('div');
       due.classList.add('task-due');
-      due.textContent = taskProperties.dueDate;
+      due.innerHTML = `Due<br>${taskProperties.dueDate}`;
 
-      const status = document.createElement('div');
-      status.classList.add('task-status');
-      status.textContent = taskProperties.status;
+      // const status = document.createElement('div');
+      // status.classList.add('task-status');
+      // status.textContent = taskProperties.status;
 
-      const progress = document.createElement('div');
-      progress.classList.add('task-progress');
-      progress.textContent = taskProperties.progress;
+      // const progress = document.createElement('div');
+      // progress.classList.add('task-progress');
+      // progress.textContent = taskProperties.progress;
 
       const description = document.createElement('div');
       description.classList.add('task-description');
       description.textContent = taskProperties.description;
 
       taskListContainer.prepend(taskContainer);
-      taskContainer.appendChild(status);
+      // taskContainer.appendChild(status);
       taskContainer.appendChild(name);
       taskContainer.appendChild(description);
       taskContainer.appendChild(dated);
       taskContainer.appendChild(due);
-      taskContainer.appendChild(progress);
+      // taskContainer.appendChild(progress);
     });
   }
 }
