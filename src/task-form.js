@@ -62,6 +62,7 @@ const taskForm = () => {
     descriptionLabel.textContent = 'Description';
     const descriptionInput = document.createElement('textarea');
     descriptionInput.classList.add('description-input');
+    descriptionInput.placeholder = 'Optional...';
 
     const buttonContainer = document.createElement('div');
     buttonContainer.classList.add('button-container');
@@ -102,11 +103,25 @@ const taskForm = () => {
 
     fieldset.appendChild(buttonContainer);
 
+    const formBackdrop = document.querySelector('.form-backdrop');
+
     // turn this button into a module for better separation
     // remember, the function in that module will need access to the project variable
-    formContainer.addEventListener('submit', (event) => {
-      project.taskList.unshift(handleSubmit(event));
-      displayNewTask(project);
+    submitButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      if (datePicker.value !== ''
+        && taskInput.value !== ''
+      ) {
+        project.taskList.unshift(handleSubmit(event));
+        displayNewTask(project);
+        formBackdrop.remove();
+        formContainer.remove();
+      }
+    });
+
+    cancelButton.addEventListener('click', () => {
+      formBackdrop.remove();
+      formContainer.remove();
     });
   }
 
