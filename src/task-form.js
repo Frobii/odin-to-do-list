@@ -117,6 +117,23 @@ const taskForm = () => {
         formBackdrop.remove();
         formContainer.remove();
       }
+      if (taskInput.value === '') {
+        taskInput.style.border = '2px solid red';
+      }
+      if (datePicker.value.length !== 10) {
+        datePicker.style.border = '2px solid red';
+      }
+    });
+
+    taskInput.addEventListener('blur', () => {
+      if (taskInput.value !== '') {
+        taskInput.style.border = '2px solid green';
+      }
+    });
+    datePicker.addEventListener('blur', () => {
+      if (datePicker.value.length === 10) {
+        datePicker.style.border = '2px solid green';
+      }
     });
 
     cancelButton.addEventListener('click', () => {
