@@ -193,12 +193,14 @@ button:hover, button:focus {
     justify-content: center;
     align-items: center;
     text-align: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.518);
 }
 
 .task-name {
-    justify-content: flex-start;
+    font-weight: 700;
 }
 
 .task-dated, .task-due {
     justify-content: flex-end;
 }
+

@@ -105,10 +105,14 @@ const taskForm = () => {
 
     const formBackdrop = document.querySelector('.form-backdrop');
 
-    // turn this button into a module for better separation
+    // turn these button events into a module for better separation
     // remember, the function in that module will need access to the project variable
     submitButton.addEventListener('click', (event) => {
       event.preventDefault();
+      if (descriptionInput.value === '') {
+        descriptionInput.value = '~';
+      }
+
       if (datePicker.value !== ''
         && taskInput.value !== ''
       ) {
