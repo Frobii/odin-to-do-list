@@ -16,10 +16,10 @@ const taskForm = () => {
   function dateToday() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const month = currentDate.getMonth() + 1;
+    const month = `0${(currentDate.getMonth() + 1)}`;
     const day = currentDate.getDate();
 
-    const todaysDate = `${day}-${month}-${year}`;
+    const todaysDate = `${year}-${month}-${day}`;
     return todaysDate;
   }
 
