@@ -1,6 +1,3 @@
-import loadProject from './project-domtools';
-import task from './task';
-
 const project = () => {
   const taskList = [];
   let title = '';

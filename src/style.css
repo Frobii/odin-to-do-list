@@ -200,6 +200,18 @@ button:hover, button:focus {
     font-weight: 700;
 }
 
+.task-container:hover *:not(.task-dated, .task-due) {
+    text-decoration: line-through;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.34);
+    cursor: pointer;
+}
+
+
+.task-complete {
+    text-decoration: line-through;
+    text-shadow: 3px 3px 3px rgba(0,0,0,0.34);
+}
+
 .task-dated, .task-due {
     justify-content: flex-end;
 }

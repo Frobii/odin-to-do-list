@@ -1,5 +1,30 @@
 import task from './task';
 
+export function switchTaskProgress(taskProperties, name, description) {
+  name.addEventListener('click', () => {
+    if (taskProperties.progress === 'In Progress') {
+      name.classList.add('task-complete');
+      description.classList.add('task-complete');
+      taskProperties.progress = 'Complete';
+    } else {
+      name.classList.remove('task-complete');
+      description.classList.remove('task-complete');
+      taskProperties.progress = 'In Progress';
+    }
+  });
+  description.addEventListener('click', () => {
+    if (taskProperties.progress === 'In Progress') {
+      name.classList.add('task-complete');
+      description.classList.add('task-complete');
+      taskProperties.progress = 'Complete';
+    } else {
+      name.classList.remove('task-complete');
+      description.classList.remove('task-complete');
+      taskProperties.progress = 'In Progress';
+    }
+  });
+}
+
 export function handleSubmit(event) {
   event.preventDefault();
 
@@ -48,6 +73,8 @@ export function displayNewTask(project) {
   const description = document.createElement('div');
   description.classList.add('task-description');
   description.textContent = newestTask.description;
+
+  switchTaskProgress(newestTask, name, description);
 
   taskListContainer.prepend(taskContainer);
   // taskContainer.appendChild(status);

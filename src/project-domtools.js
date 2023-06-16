@@ -1,4 +1,5 @@
 import taskForm from './task-form';
+import { switchTaskProgress } from './task-controller';
 
 function loadExistingTasks(project) {
   const projectArray = project.taskList;
@@ -34,6 +35,8 @@ function loadExistingTasks(project) {
       const description = document.createElement('div');
       description.classList.add('task-description');
       description.textContent = taskProperties.description;
+
+      switchTaskProgress(taskProperties, name, description);
 
       taskListContainer.prepend(taskContainer);
       // taskContainer.appendChild(status);
