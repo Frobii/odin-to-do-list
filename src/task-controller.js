@@ -42,7 +42,7 @@ export function handleSubmit(event) {
   return newTask;
 }
 
-export function displayTask(task) {
+export function displayTask(taskProperties) {
   const taskListContainer = document.querySelector('.current-tasks');
 
   const taskContainer = document.createElement('div');
@@ -50,21 +50,21 @@ export function displayTask(task) {
 
   const name = document.createElement('div');
   name.classList.add('task-name');
-  name.textContent = task.name;
+  name.textContent = taskProperties.name;
 
   const dated = document.createElement('div');
   dated.classList.add('task-dated');
-  dated.innerHTML = `Created<br>${task.dated}`;
+  dated.innerHTML = `Created<br>${taskProperties.dated}`;
 
   const due = document.createElement('div');
   due.classList.add('task-due');
-  due.innerHTML = `Due<br>${task.dueDate}`;
+  due.innerHTML = `Due<br>${taskProperties.dueDate}`;
 
   const description = document.createElement('div');
   description.classList.add('task-description');
-  description.textContent = task.description;
+  description.textContent = taskProperties.description;
 
-  switchTaskProgress(task, name, description);
+  switchTaskProgress(taskProperties, name, description);
 
   taskListContainer.prepend(taskContainer);
   taskContainer.appendChild(name);

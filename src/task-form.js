@@ -1,4 +1,4 @@
-import { handleSubmit, displayNewTask } from './task-controller';
+import { handleSubmit, displayNewestTask } from './task-controller';
 
 const taskForm = () => {
   function loadBackdrop() {
@@ -109,15 +109,15 @@ const taskForm = () => {
     // remember, the function in that module will need access to the project variable
     submitButton.addEventListener('click', (event) => {
       event.preventDefault();
-      if (descriptionInput.value === '') {
-        descriptionInput.value = '~';
-      }
 
       if (datePicker.value !== ''
         && taskInput.value !== ''
       ) {
+        if (descriptionInput.value === '') {
+          descriptionInput.value = '~';
+        }
         project.taskList.unshift(handleSubmit(event));
-        displayNewTask(project);
+        displayNewestTask(project);
         formBackdrop.remove();
         formContainer.remove();
       }
