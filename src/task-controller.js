@@ -25,6 +25,35 @@ export function switchTaskProgress(taskProperties, name, description) {
   });
 }
 
+export function updateDueStatus(taskProperties, dueDateElement) {
+  const currentDate = new Date();
+  const { dueDate } = taskProperties;
+
+  const dueYear = Number(dueDate.substring(0, 4));
+  const dueMonth = Number(dueDate.substring(5, 7));
+  const dueDay = Number(dueDate.substring(8, 10));
+
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDay = currentDate.getDate();
+
+  if (dueYear > currentYear) {
+    dueDateElement.style.color = 'green';
+  } else if (dueMonth > currentMonth) {
+    dueDateElement.style.color = 'green';
+  } else if (dueDay > currentDay) {
+    if (dueDay - currentDay >= 7) {
+      dueDateElement.style.color = 'green';
+    }
+    if (dueDay - currentDay < 7) {
+      dueDateElement.style.color = 'orange';
+    }
+    if (dueDay - currentDay < 2) {
+      dueDateElement.style.color = 'red';
+    }
+  }
+}
+
 export function handleSubmit(event) {
   event.preventDefault();
 
@@ -65,6 +94,8 @@ export function displayTask(taskProperties) {
   description.textContent = taskProperties.description;
 
   switchTaskProgress(taskProperties, name, description);
+
+  updateDueStatus(taskProperties, due);
 
   taskListContainer.prepend(taskContainer);
   taskContainer.appendChild(name);

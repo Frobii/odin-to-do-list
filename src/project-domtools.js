@@ -6,7 +6,6 @@ function loadExistingTasks(project) {
   if (projectArray.length > 0) {
     projectArray.forEach((task) => {
       const taskProperties = task.properties;
-
       displayTask(taskProperties);
     });
   }

@@ -8,13 +8,8 @@ const task = () => {
     description: '',
   };
 
-  function checkStatus() {
-
-  }
-
   return {
     properties,
-    checkStatus,
   };
 };
 
