@@ -3,6 +3,9 @@ import './style.css';
 import project from './project';
 import loadProject from './project-domtools';
 import task from './task';
+import toggleSideBar from './sidebar.js';
+
+toggleSideBar();
 
 const newTask = task();
 newTask.properties.name = 'test';
