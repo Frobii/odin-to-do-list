@@ -1,22 +1,27 @@
-const sidebar = document.querySelector('.sidebar');
-const main = document.querySelector('.main');
+function loadBackdrop(sidebar, backdrop) {
+  const main = document.querySelector('.main');
+  const checkExisting = document.querySelector('.main-backdrop');
 
-function loadBackdrop() {
-  const mainBackdrop = document.createElement('div');
-  mainBackdrop.classList.add('main-backdrop');
-  main.appendChild(mainBackdrop);
+  if (checkExisting) {
+    backdrop.remove();
+  } else {
+    main.appendChild(backdrop);
+  }
 
-  mainBackdrop.addEventListener('click', () => {
-    mainBackdrop.remove();
-    sidebar.classList.toggle('enable-sidebar');
+  backdrop.addEventListener('click', () => {
+    sidebar.classList.remove('enable-sidebar');
+    backdrop.remove();
   });
 }
 
 export default function toggleSideBar() {
+  const sidebar = document.querySelector('.sidebar');
+  const mainBackdrop = document.createElement('div');
   const menuButton = document.querySelector('.sidebar-button');
+  mainBackdrop.classList.add('main-backdrop');
 
   menuButton.addEventListener('click', () => {
-    loadBackdrop();
+    loadBackdrop(sidebar, mainBackdrop);
     sidebar.classList.toggle('enable-sidebar');
   });
 }

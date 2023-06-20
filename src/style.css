@@ -32,6 +32,7 @@ body {
     background-color: grey;
     width: 0px;
     height: 0px;
+    z-index: 999;
 } 
 
 .enable-sidebar {
