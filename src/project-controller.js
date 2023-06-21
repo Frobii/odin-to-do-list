@@ -10,6 +10,9 @@ export default function populateSidebar() {
     const projectTitle = document.createElement('div');
     projectTitle.classList.add('sidebar-project');
     projectTitle.textContent = project.getTitle();
-    sidebar.appendChild(projectTitle);
+
+    projectListContainer.appendChild(projectTitle);
   });
+
+  sidebar.appendChild(projectListContainer);
 }
