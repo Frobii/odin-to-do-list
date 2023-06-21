@@ -1,9 +1,10 @@
 import _ from 'lodash';
 import './style.css';
-import project from './project';
+import { currentProjects, project } from './project';
 import loadProject from './project-domtools';
 import task from './task';
-import toggleSideBar from './sidebar.js';
+import toggleSideBar from './sidebar';
+import populateSidebar from './project-controller';
 
 toggleSideBar();
 
@@ -16,4 +17,9 @@ newTask.properties.description = 'Testing the styling so this is going to be qui
 const myProject = project();
 myProject.setTitle('My Project');
 myProject.taskList.unshift(newTask);
+
 loadProject(myProject);
+
+currentProjects.projectList.push(myProject);
+
+populateSidebar();

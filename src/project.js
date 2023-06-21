@@ -1,3 +1,10 @@
+const currentProjects = (() => {
+  const projectList = [];
+  return {
+    projectList,
+  };
+})();
+
 const project = () => {
   const taskList = [];
   let title = '';
@@ -22,4 +29,7 @@ const project = () => {
   };
 };
 
-export default project;
+export {
+  currentProjects,
+  project,
+};
