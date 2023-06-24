@@ -93,6 +93,11 @@ export function displayTask(taskProperties) {
   description.classList.add('task-description');
   description.textContent = taskProperties.description;
 
+  if (taskProperties.progress === 'Complete') {
+    name.classList.add('task-complete');
+    description.classList.add('task-complete');
+  }
+
   switchTaskProgress(taskProperties, name, description);
 
   updateDueStatus(taskProperties, due);

@@ -2,9 +2,9 @@ import taskForm from './task-form';
 import { displayTask } from './task-controller';
 
 function loadExistingTasks(project) {
-  const projectArray = project.taskList;
-  if (projectArray.length > 0) {
-    projectArray.forEach((task) => {
+  const { taskList } = project;
+  if (taskList.length > 0) {
+    taskList.forEach((task) => {
       const taskProperties = task.properties;
       displayTask(taskProperties);
     });
@@ -13,6 +13,7 @@ function loadExistingTasks(project) {
 
 export default function loadProject(project) {
   const main = document.querySelector('.main');
+  main.innerHTML = '';
 
   const projectTitle = document.createElement('div');
   projectTitle.classList.add('project-title');
