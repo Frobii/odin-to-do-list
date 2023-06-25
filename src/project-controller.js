@@ -1,6 +1,6 @@
 import { currentProjects } from './project';
 import loadProject from './project-domtools';
-import toggleSideBar from './sidebar';
+import loadProjectForm from './project-form';
 
 function clickProjectToLoad(projectContainer, project) {
   const sidebar = document.querySelector('.sidebar');
@@ -15,6 +15,11 @@ function clickProjectToLoad(projectContainer, project) {
 
 export default function populateSidebar() {
   const sidebar = document.querySelector('.sidebar');
+  const newProjButton = document.querySelector('.new-project-button');
+
+  newProjButton.addEventListener('click', () => {
+    loadProjectForm();
+  });
 
   const projectListContainer = document.createElement('div');
   projectListContainer.classList.add('project-list-container');
