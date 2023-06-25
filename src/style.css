@@ -37,7 +37,7 @@ body {
 .projects-header {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid rgba(0, 0, 0, 0.329);
     margin-left: 30px;
@@ -114,15 +114,28 @@ body {
 
 .sidebar-project {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 240px;
     height: 42px;
     border-radius: 5px;
     font-size: 1.1rem;
-    color: rgba(0, 0, 0, 0.514);
+    color: rgba(0, 0, 0, 0.550);
     font-weight: 700;
     margin-bottom: 10px;
+}
+
+.delete-project-button {
+    background-image: url(./icons/icons8-trash.svg);
+    height: 25px;
+    width: 25px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.delete-project-button:hover {
+    transform: scale(1.1);
 }
 
 .sidebar-project:hover {
@@ -276,7 +289,6 @@ button {
     font-weight: 600;
     border-radius: 15px;
     border: 2px solid rgba(0, 0, 0, 0.614);
-    /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
 }
 
 button:first-child {

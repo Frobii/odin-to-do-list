@@ -22,7 +22,17 @@ export default function populateSidebar() {
   currentProjects.projectList.forEach((project) => {
     const projectContainer = document.createElement('div');
     projectContainer.classList.add('sidebar-project');
-    projectContainer.textContent = project.getTitle();
+
+    const projectTitle = document.createElement('div');
+    projectTitle.classList.add('sidebar-project-title');
+
+    const deleteProjButton = document.createElement('div');
+    deleteProjButton.classList.add('delete-project-button');
+
+    projectContainer.appendChild(projectTitle);
+    projectContainer.appendChild(deleteProjButton);
+
+    projectTitle.textContent = project.getTitle();
     clickProjectToLoad(projectContainer, project);
 
     projectListContainer.appendChild(projectContainer);
