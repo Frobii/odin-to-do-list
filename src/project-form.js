@@ -1,4 +1,6 @@
 import { currentProjects, project } from './project';
+import populateSidebar from './project-controller';
+import loadProject from './project-domtools';
 
 const loadProjectForm = () => {
   const backdrop = document.querySelector('.main-backdrop');
@@ -33,11 +35,11 @@ const loadProjectForm = () => {
 
   const submitButton = document.createElement('button');
   submitButton.type = 'submit';
-  submitButton.classList.add('submit-button');
+  submitButton.classList.add('project-submit-button');
   submitButton.textContent = 'SUBMIT';
 
   const cancelButton = document.createElement('button');
-  cancelButton.classList.add('cancel-button');
+  cancelButton.classList.add('project-cancel-button');
   cancelButton.textContent = 'CANCEL';
 
   main.insertBefore(formContainer, main.firstChild);
@@ -51,7 +53,35 @@ const loadProjectForm = () => {
   buttonContainer.appendChild(submitButton);
   buttonContainer.appendChild(cancelButton);
 
+  fieldset.appendChild(buttonContainer);
+
   newBackdrop.addEventListener('click', () => {
+    newBackdrop.remove();
+    formContainer.remove();
+  });
+
+  cancelButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    newBackdrop.remove();
+    formContainer.remove();
+  });
+
+  submitButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const newProject = project();
+
+    if (projectInput.value !== '') {
+      newProject.setTitle(projectInput.value);
+    } else {
+      projectInput.style.border = 'red';
+    }
+
+    currentProjects.projectList.push(newProject);
+
+    loadProject(newProject);
+    populateSidebar();
     newBackdrop.remove();
     formContainer.remove();
   });

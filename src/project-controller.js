@@ -21,6 +21,8 @@ export default function populateSidebar() {
     loadProjectForm();
   });
 
+  sidebar.removeChild(sidebar.lastChild);
+
   const projectListContainer = document.createElement('div');
   projectListContainer.classList.add('project-list-container');
 
