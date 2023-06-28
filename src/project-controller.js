@@ -13,6 +13,39 @@ function clickProjectToLoad(projectContainer, project) {
   });
 }
 
+function deleteProject(projectContainer, project) {
+  projectContainer.remove();
+
+  const main = document.querySelector('.main');
+  const sidebar = document.querySelector('.sidebar');
+
+  const backdrop = document.createElement('div');
+  backdrop.classList.add('main-backdrop');
+
+  backdrop.addEventListener('click', () => {
+    sidebar.classList.remove('enable-sidebar');
+    backdrop.remove();
+  });
+
+  const projTitle = document.querySelector('.project-title');
+  const newProjContainer = document.querySelector('.new-task-container');
+  const currentTasks = document.querySelector('.current-tasks');
+
+  const projectArray = currentProjects.projectList;
+  const projIndex = projectArray.findIndex((obj) => obj.getTitle === project.getTitle);
+
+  currentProjects.projectList.splice(projIndex, 1);
+
+  if (currentProjects.projectList[0]) {
+    loadProject(currentProjects.projectList[0]);
+    main.appendChild(backdrop);
+  } else {
+    projTitle.remove();
+    newProjContainer.remove();
+    currentTasks.remove();
+  }
+}
+
 export default function populateSidebar() {
   const sidebar = document.querySelector('.sidebar');
   const newProjButton = document.querySelector('.new-project-button');
@@ -35,6 +68,11 @@ export default function populateSidebar() {
 
     const deleteProjButton = document.createElement('div');
     deleteProjButton.classList.add('delete-project-button');
+
+    deleteProjButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      deleteProject(projectContainer, project);
+    });
 
     projectContainer.appendChild(projectTitle);
     projectContainer.appendChild(deleteProjButton);
