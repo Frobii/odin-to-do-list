@@ -6,7 +6,7 @@ function loadExistingTasks(project) {
   if (taskList.length > 0) {
     taskList.forEach((task) => {
       const taskProperties = task.properties;
-      displayTask(taskProperties);
+      displayTask(taskProperties, project);
     });
   }
 }

@@ -25,6 +25,17 @@ export function switchTaskProgress(taskProperties, name, description) {
   });
 }
 
+function deleteTask(taskProperties, project, taskContainer) {
+  project.taskList.forEach((projTask, index) => {
+    if (projTask.properties.name === taskProperties.name
+      && projTask.properties.dated === taskProperties.dated
+      && projTask.properties.description === taskProperties.description) {
+      project.taskList.splice(index, 1);
+    }
+  });
+  taskContainer.remove();
+}
+
 export function updateDueStatus(taskProperties, dueDateElement) {
   const currentDate = new Date();
   const { dueDate } = taskProperties;
@@ -71,7 +82,7 @@ export function handleSubmit(event) {
   return newTask;
 }
 
-export function displayTask(taskProperties) {
+export function displayTask(taskProperties, project) {
   const taskListContainer = document.querySelector('.current-tasks');
 
   const taskContainer = document.createElement('div');
@@ -81,13 +92,25 @@ export function displayTask(taskProperties) {
   name.classList.add('task-name');
   name.textContent = taskProperties.name;
 
-  const dated = document.createElement('div');
-  dated.classList.add('task-dated');
-  dated.innerHTML = `Created<br>${taskProperties.dated}`;
+  // const dated = document.createElement('div');
+  // dated.classList.add('task-dated');
+  // dated.innerHTML = `Created<br>${taskProperties.dated}`;
 
   const due = document.createElement('div');
   due.classList.add('task-due');
   due.innerHTML = `Due<br>${taskProperties.dueDate}`;
+
+  const deleteTaskButton = document.createElement('div');
+  deleteTaskButton.classList.add('delete-task-button');
+
+  const editTaskButton = document.createElement('div');
+  editTaskButton.classList.add('edit-task-button');
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('task-button-container');
+
+  buttonContainer.appendChild(editTaskButton);
+  buttonContainer.appendChild(deleteTaskButton);
 
   const description = document.createElement('div');
   description.classList.add('task-description');
@@ -98,6 +121,10 @@ export function displayTask(taskProperties) {
     description.classList.add('task-complete');
   }
 
+  deleteTaskButton.addEventListener('click', () => {
+    deleteTask(taskProperties, project, taskContainer);
+  });
+
   switchTaskProgress(taskProperties, name, description);
 
   updateDueStatus(taskProperties, due);
@@ -105,12 +132,13 @@ export function displayTask(taskProperties) {
   taskListContainer.prepend(taskContainer);
   taskContainer.appendChild(name);
   taskContainer.appendChild(description);
-  taskContainer.appendChild(dated);
+  // taskContainer.appendChild(dated);
   taskContainer.appendChild(due);
+  taskContainer.appendChild(buttonContainer);
 }
 
 export function displayNewestTask(project) {
   const newestTask = project.taskList[0].properties;
 
-  displayTask(newestTask);
+  displayTask(newestTask, project);
 }
