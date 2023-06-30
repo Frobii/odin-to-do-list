@@ -28,6 +28,7 @@ const loadProjectForm = () => {
   const projectLabel = document.createElement('label');
   projectLabel.textContent = 'Name Your Project';
   const projectInput = document.createElement('input');
+  projectInput.maxLength = '22';
   projectInput.classList.add('project-name');
 
   const buttonContainer = document.createElement('div');
