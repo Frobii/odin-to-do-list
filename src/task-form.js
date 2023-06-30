@@ -39,6 +39,7 @@ const taskForm = () => {
     const taskLabel = document.createElement('label');
     taskLabel.textContent = 'Name Your Task';
     const taskInput = document.createElement('input');
+    taskInput.maxLength = '25';
     taskInput.classList.add('task-input');
 
     const dateContainer = document.createElement('div');
@@ -61,6 +62,7 @@ const taskForm = () => {
     const descriptionLabel = document.createElement('label');
     descriptionLabel.textContent = 'Description';
     const descriptionInput = document.createElement('textarea');
+    descriptionInput.maxLength = '164';
     descriptionInput.classList.add('description-input');
     descriptionInput.placeholder = 'Optional...';
 

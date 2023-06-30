@@ -1,4 +1,5 @@
 import task from './task';
+import taskForm from './task-form';
 
 export function switchTaskProgress(taskProperties, name, description) {
   name.addEventListener('click', () => {
@@ -34,6 +35,22 @@ function deleteTask(taskProperties, project, taskContainer) {
     }
   });
   taskContainer.remove();
+}
+
+function editTask(taskProperties, project, taskContainer) {
+  taskForm().loadForm(project);
+  const taskInput = document.querySelector('.task-input');
+  const descriptionInput = document.querySelector('.description-input');
+  const datePicker = document.querySelector('.date-picker');
+  const submitButton = document.querySelector('.submit-button');
+
+  taskInput.value = taskProperties.name;
+  descriptionInput.value = taskProperties.description;
+  datePicker.value = taskProperties.dueDate;
+
+  submitButton.addEventListener('click', () => {
+    deleteTask(taskProperties, project, taskContainer);
+  });
 }
 
 export function updateDueStatus(taskProperties, dueDateElement) {
@@ -120,6 +137,10 @@ export function displayTask(taskProperties, project) {
     name.classList.add('task-complete');
     description.classList.add('task-complete');
   }
+
+  editTaskButton.addEventListener('click', () => {
+    editTask(taskProperties, project, taskContainer);
+  });
 
   deleteTaskButton.addEventListener('click', () => {
     deleteTask(taskProperties, project, taskContainer);
