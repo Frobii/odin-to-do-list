@@ -1,4 +1,3 @@
-import task from './task';
 import taskForm from './task-form';
 
 export function switchTaskProgress(taskProperties, name, description) {
@@ -82,23 +81,6 @@ export function updateDueStatus(taskProperties, dueDateElement) {
   }
 }
 
-export function handleSubmit(event) {
-  event.preventDefault();
-
-  const name = document.querySelector('.task-input').value;
-  const dateToday = document.querySelector('.date-today').textContent;
-  const dueDate = document.querySelector('.date-picker').value;
-  const description = document.querySelector('.description-input').value;
-
-  const newTask = task();
-  newTask.properties.name = name;
-  newTask.properties.dated = dateToday;
-  newTask.properties.dueDate = dueDate;
-  newTask.properties.description = description;
-
-  return newTask;
-}
-
 export function displayTask(taskProperties, project) {
   const taskListContainer = document.querySelector('.current-tasks');
 
@@ -108,10 +90,6 @@ export function displayTask(taskProperties, project) {
   const name = document.createElement('div');
   name.classList.add('task-name');
   name.textContent = taskProperties.name;
-
-  // const dated = document.createElement('div');
-  // dated.classList.add('task-dated');
-  // dated.innerHTML = `Created<br>${taskProperties.dated}`;
 
   const due = document.createElement('div');
   due.classList.add('task-due');
@@ -153,7 +131,6 @@ export function displayTask(taskProperties, project) {
   taskListContainer.prepend(taskContainer);
   taskContainer.appendChild(name);
   taskContainer.appendChild(description);
-  // taskContainer.appendChild(dated);
   taskContainer.appendChild(due);
   taskContainer.appendChild(buttonContainer);
 }
