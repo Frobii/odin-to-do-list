@@ -80,6 +80,7 @@ const loadProjectForm = () => {
     }
 
     currentProjects.projectList.push(newProject);
+    currentProjects.saveProjectsToLocalStorage();
 
     loadProject(newProject);
     populateSidebar();

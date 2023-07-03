@@ -3,10 +3,10 @@ import './style.css';
 import { currentProjects, project } from './project';
 import loadProject from './project-domtools';
 import task from './task';
-import toggleSideBar from './sidebar';
+import sidebarUtilities from './sidebar';
 import populateSidebar from './project-controller';
 
-toggleSideBar();
+sidebarUtilities().toggleSideBar();
 
 const newTask = task();
 newTask.properties.name = 'test';

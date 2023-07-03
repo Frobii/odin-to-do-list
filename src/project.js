@@ -1,5 +1,6 @@
 const currentProjects = (() => {
   const projectList = [];
+
   return {
     projectList,
   };
