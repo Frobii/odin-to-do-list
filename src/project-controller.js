@@ -1,6 +1,5 @@
 import { currentProjects } from './project';
 import loadProject from './project-domtools';
-import loadProjectForm from './project-form';
 
 const projectController = () => {
   function clickProjectToLoad(projectContainer, project) {
@@ -49,11 +48,6 @@ const projectController = () => {
 
   function populateSidebar() {
     const sidebar = document.querySelector('.sidebar');
-    const newProjButton = document.querySelector('.new-project-button');
-
-    newProjButton.addEventListener('click', () => {
-      loadProjectForm();
-    });
 
     sidebar.removeChild(sidebar.lastChild);
 

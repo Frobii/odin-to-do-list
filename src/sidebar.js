@@ -1,3 +1,5 @@
+import projectForm from './project-form';
+
 const sidebarUtilities = () => {
   function loadBackdrop(sidebar, backdrop) {
     const main = document.querySelector('.main');
@@ -24,6 +26,13 @@ const sidebarUtilities = () => {
     menuButton.addEventListener('click', () => {
       loadBackdrop(sidebar, mainBackdrop);
       sidebar.classList.toggle('enable-sidebar');
+    });
+
+    const newProjButton = document.querySelector('.new-project-button');
+    const projForm = projectForm();
+
+    newProjButton.addEventListener('click', () => {
+      projForm.loadProjectForm();
     });
   }
 
