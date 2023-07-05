@@ -4,7 +4,9 @@ import { currentProjects, project } from './project';
 import loadProject from './project-domtools';
 import task from './task';
 import sidebarUtilities from './sidebar';
-import populateSidebar from './project-controller';
+import projectController from './project-controller';
+
+const controller = projectController();
 
 sidebarUtilities().toggleSideBar();
 
@@ -33,4 +35,4 @@ loadProject(myProject);
 currentProjects.projectList.push(myProject);
 currentProjects.projectList.push(myProject2);
 
-populateSidebar();
+controller.populateSidebar();

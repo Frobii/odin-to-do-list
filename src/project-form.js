@@ -1,5 +1,5 @@
 import { currentProjects, project } from './project';
-import populateSidebar from './project-controller';
+import projectController from './project-controller';
 import loadProject from './project-domtools';
 
 const loadProjectForm = () => {
@@ -72,6 +72,7 @@ const loadProjectForm = () => {
     event.preventDefault();
 
     const newProject = project();
+    const controller = projectController();
 
     if (projectInput.value !== '') {
       newProject.setTitle(projectInput.value);
@@ -80,10 +81,9 @@ const loadProjectForm = () => {
     }
 
     currentProjects.projectList.push(newProject);
-    currentProjects.saveProjectsToLocalStorage();
 
     loadProject(newProject);
-    populateSidebar();
+    controller.populateSidebar();
     newBackdrop.remove();
     formContainer.remove();
   });
