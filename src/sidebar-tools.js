@@ -1,13 +1,13 @@
 import { currentProjects } from './project';
-import loadProject from './project-domtools';
+import projectDomtools from './project-domtools';
 
-const projectController = () => {
+const sidebarTools = () => {
   function clickProjectToLoad(projectContainer, project) {
     const sidebar = document.querySelector('.sidebar');
     const backdrop = document.createElement('div');
 
     projectContainer.addEventListener('click', () => {
-      loadProject(project);
+      projectDomtools().loadProject(project);
       backdrop.remove();
       sidebar.classList.remove('enable-sidebar');
     });
@@ -37,7 +37,7 @@ const projectController = () => {
     currentProjects.projectList.splice(projIndex, 1);
 
     if (currentProjects.projectList[0]) {
-      loadProject(currentProjects.projectList[0]);
+      projectDomtools().loadProject(currentProjects.projectList[0]);
       main.appendChild(backdrop);
     } else {
       projTitle.remove();
@@ -86,4 +86,4 @@ const projectController = () => {
   };
 };
 
-export default projectController;
+export default sidebarTools;

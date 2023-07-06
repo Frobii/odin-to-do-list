@@ -1,4 +1,4 @@
-import { displayNewestTask } from './task-controller';
+import taskDomtools from './task-domtools';
 import task from './task';
 
 const taskForm = () => {
@@ -125,8 +125,17 @@ const taskForm = () => {
 
     const formBackdrop = document.querySelector('.form-backdrop');
 
-    // turn these button events into a module for better separation
-    // remember, the function in that module will need access to the project variable
+    taskInput.addEventListener('blur', () => {
+      if (taskInput.value !== '') {
+        taskInput.style.border = '2px solid green';
+      }
+    });
+    datePicker.addEventListener('blur', () => {
+      if (datePicker.value.length === 10) {
+        datePicker.style.border = '2px solid green';
+      }
+    });
+
     submitButton.addEventListener('click', (event) => {
       event.preventDefault();
 
@@ -137,7 +146,7 @@ const taskForm = () => {
           descriptionInput.value = '~';
         }
         project.taskList.unshift(handleSubmit(event));
-        displayNewestTask(project);
+        taskDomtools().displayNewestTask(project);
         formBackdrop.remove();
         formContainer.remove();
       }
@@ -146,17 +155,6 @@ const taskForm = () => {
       }
       if (datePicker.value.length !== 10) {
         datePicker.style.border = '2px solid red';
-      }
-    });
-
-    taskInput.addEventListener('blur', () => {
-      if (taskInput.value !== '') {
-        taskInput.style.border = '2px solid green';
-      }
-    });
-    datePicker.addEventListener('blur', () => {
-      if (datePicker.value.length === 10) {
-        datePicker.style.border = '2px solid green';
       }
     });
 

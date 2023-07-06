@@ -1,6 +1,6 @@
 import { currentProjects, project } from './project';
-import projectController from './project-controller';
-import loadProject from './project-domtools';
+import sidebarTools from './sidebar-tools';
+import projectDomtools from './project-domtools';
 
 const projectForm = () => {
   function loadProjectForm() {
@@ -73,7 +73,6 @@ const projectForm = () => {
       event.preventDefault();
 
       const newProject = project();
-      const controller = projectController();
 
       if (projectInput.value !== '') {
         newProject.setTitle(projectInput.value);
@@ -83,8 +82,8 @@ const projectForm = () => {
 
       currentProjects.projectList.push(newProject);
 
-      loadProject(newProject);
-      controller.populateSidebar();
+      projectDomtools().loadProject(newProject);
+      sidebarTools().populateSidebar();
       newBackdrop.remove();
       formContainer.remove();
     });

@@ -1,12 +1,10 @@
 import _ from 'lodash';
 import './style.css';
 import { currentProjects, project } from './project';
-import loadProject from './project-domtools';
+import projectDomtools from './project-domtools';
 import task from './task';
 import sidebarUtilities from './sidebar';
-import projectController from './project-controller';
-
-const controller = projectController();
+import sidebarTools from './sidebar-tools';
 
 sidebarUtilities().toggleSideBar();
 
@@ -30,9 +28,9 @@ const myProject2 = project();
 myProject2.setTitle('My Project 2');
 myProject2.taskList.unshift(newTask2);
 
-loadProject(myProject);
+projectDomtools().loadProject(myProject);
 
 currentProjects.projectList.push(myProject);
 currentProjects.projectList.push(myProject2);
 
-controller.populateSidebar();
+sidebarTools().populateSidebar();
