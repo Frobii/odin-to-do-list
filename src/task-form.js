@@ -14,7 +14,7 @@ const taskForm = () => {
     });
   }
 
-  function dateToday() {
+  function getDateToday() {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
     const month = `0${(currentDate.getMonth() + 1)}`;
@@ -75,7 +75,7 @@ const taskForm = () => {
     dateLabel.textContent = 'Date Created:';
     const dateInput = document.createElement('div');
     dateInput.classList.add('date-today');
-    dateInput.textContent = dateToday();
+    dateInput.textContent = getDateToday();
 
     const descriptionLabel = document.createElement('label');
     descriptionLabel.textContent = 'Description';
