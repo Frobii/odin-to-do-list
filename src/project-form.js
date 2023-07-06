@@ -1,5 +1,5 @@
 import { currentProjects, project } from './project';
-import sidebarTools from './sidebar-tools';
+import sidebarTools from './sidebar-domtools';
 import projectDomtools from './project-domtools';
 
 const projectForm = () => {

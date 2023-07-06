@@ -4,7 +4,7 @@ import { currentProjects, project } from './project';
 import projectDomtools from './project-domtools';
 import task from './task';
 import sidebarUtilities from './sidebar';
-import sidebarTools from './sidebar-tools';
+import sidebarTools from './sidebar-domtools';
 
 sidebarUtilities().toggleSideBar();
 
