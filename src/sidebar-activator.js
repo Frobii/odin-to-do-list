@@ -1,6 +1,6 @@
 import projectForm from './project-form';
 
-const sidebarUtilities = () => {
+const sidebarActivator = () => {
   function loadBackdrop(sidebar, backdrop) {
     const main = document.querySelector('.main');
     const checkExisting = document.querySelector('.main-backdrop');
@@ -41,4 +41,4 @@ const sidebarUtilities = () => {
   };
 };
 
-export default sidebarUtilities;
+export default sidebarActivator;

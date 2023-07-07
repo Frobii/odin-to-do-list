@@ -75,12 +75,15 @@ const projectForm = () => {
       const newProject = project();
 
       if (projectInput.value !== '') {
-        newProject.setTitle(projectInput.value);
+        newProject.title = projectInput.value;
       } else {
         projectInput.style.border = 'red';
       }
 
       currentProjects.projectList.push(newProject);
+
+      const currentProjectsData = JSON.stringify(currentProjects);
+      localStorage.setItem('currentProjects', currentProjectsData);
 
       projectDomtools().loadProject(newProject);
       sidebarTools().populateSidebar();

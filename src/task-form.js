@@ -1,4 +1,5 @@
 import taskDomtools from './task-domtools';
+import { currentProjects } from './project';
 import task from './task';
 
 const taskForm = () => {
@@ -147,6 +148,8 @@ const taskForm = () => {
         }
         project.taskList.unshift(handleSubmit(event));
         taskDomtools().displayNewestTask(project);
+        const currentProjectsData = JSON.stringify(currentProjects);
+        localStorage.setItem('currentProjects', currentProjectsData);
         formBackdrop.remove();
         formContainer.remove();
       }

@@ -10,23 +10,11 @@ const project = () => {
   const taskList = [];
   let title = '';
 
-  function setTitle(newTitle) {
-    title = newTitle;
-  }
-
-  function getTitle() {
-    return title;
-  }
-
-  function deleteTask() {
-
-  }
+  title = '';
 
   return {
     taskList,
-    setTitle,
-    getTitle,
-    deleteTask,
+    title,
   };
 };
 

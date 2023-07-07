@@ -19,7 +19,7 @@ const projectDomtools = () => {
     const projectTitle = document.createElement('div');
     projectTitle.classList.add('project-title');
 
-    projectTitle.textContent = project.getTitle();
+    projectTitle.textContent = project.title;
 
     const newTaskContainer = document.createElement('div');
     const taskCount = document.createElement('div');

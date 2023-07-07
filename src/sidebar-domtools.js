@@ -32,7 +32,7 @@ const sidebarTools = () => {
     const currentTasks = document.querySelector('.current-tasks');
 
     const projectArray = currentProjects.projectList;
-    const projIndex = projectArray.findIndex((obj) => obj.getTitle === project.getTitle);
+    const projIndex = projectArray.findIndex((obj) => obj.title === project.title);
 
     currentProjects.projectList.splice(projIndex, 1);
 
@@ -72,7 +72,7 @@ const sidebarTools = () => {
       projectContainer.appendChild(projectTitle);
       projectContainer.appendChild(deleteProjButton);
 
-      projectTitle.textContent = project.getTitle();
+      projectTitle.textContent = project.title;
       clickProjectToLoad(projectContainer, project);
 
       projectListContainer.appendChild(projectContainer);
