@@ -13,6 +13,8 @@ const taskFunctions = () => {
         description.classList.remove('task-complete');
         taskProperties.progress = 'In Progress';
       }
+      const currentProjectsData = JSON.stringify(currentProjects);
+      localStorage.setItem('currentProjects', currentProjectsData);
     });
     description.addEventListener('click', () => {
       if (taskProperties.progress === 'In Progress') {
@@ -24,6 +26,8 @@ const taskFunctions = () => {
         description.classList.remove('task-complete');
         taskProperties.progress = 'In Progress';
       }
+      const currentProjectsData = JSON.stringify(currentProjects);
+      localStorage.setItem('currentProjects', currentProjectsData);
     });
   }
 

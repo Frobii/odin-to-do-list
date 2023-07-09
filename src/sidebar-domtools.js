@@ -44,6 +44,9 @@ const sidebarTools = () => {
       newProjContainer.remove();
       currentTasks.remove();
     }
+
+    const currentProjectsData = JSON.stringify(currentProjects);
+    localStorage.setItem('currentProjects', currentProjectsData);
   }
 
   function populateSidebar() {
