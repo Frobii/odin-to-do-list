@@ -1,4 +1,5 @@
 import taskForm from './task-form';
+import { currentProjects } from './project';
 
 const taskFunctions = () => {
   function switchTaskProgress(taskProperties, name, description) {
@@ -34,6 +35,8 @@ const taskFunctions = () => {
         project.taskList.splice(index, 1);
       }
     });
+    const currentProjectsData = JSON.stringify(currentProjects);
+    localStorage.setItem('currentProjects', currentProjectsData);
     taskContainer.remove();
   }
 
@@ -51,6 +54,8 @@ const taskFunctions = () => {
     submitButton.addEventListener('click', () => {
       deleteTask(taskProperties, project, taskContainer);
     });
+    const currentProjectsData = JSON.stringify(currentProjects);
+    localStorage.setItem('currentProjects', currentProjectsData);
   }
 
   function updateDueStatus(taskProperties, dueDateElement) {
@@ -65,20 +70,32 @@ const taskFunctions = () => {
     const currentMonth = currentDate.getMonth() + 1;
     const currentDay = currentDate.getDate();
 
-    if (dueYear > currentYear) {
+    if (currentYear < dueYear) {
       dueDateElement.style.color = 'green';
-    } else if (dueMonth > currentMonth) {
+    } else if (currentMonth < dueMonth
+      && currentYear === dueYear) {
       dueDateElement.style.color = 'green';
-    } else if (dueDay > currentDay) {
-      if (dueDay - currentDay >= 7) {
-        dueDateElement.style.color = 'green';
-      }
-      if (dueDay - currentDay < 7) {
-        dueDateElement.style.color = 'orange';
-      }
-      if (dueDay - currentDay < 2) {
-        dueDateElement.style.color = 'red';
-      }
+    } else if (dueDay - currentDay >= 7
+      && currentMonth === dueMonth
+      && currentYear === dueYear) {
+      dueDateElement.style.color = 'green';
+    }
+
+    if (dueDay - currentDay < 7
+      && currentMonth === dueMonth
+      && currentYear === dueYear) {
+      dueDateElement.style.color = 'orange';
+    }
+
+    if (currentYear > dueYear) {
+      dueDateElement.style.color = 'red';
+    } else if (currentYear === dueYear
+      && currentMonth > dueMonth) {
+      dueDateElement.style.color = 'red';
+    } else if (currentYear === dueYear
+      && currentMonth === dueMonth
+      && currentDay === dueDay) {
+      dueDateElement.style.color = 'red';
     }
   }
 
