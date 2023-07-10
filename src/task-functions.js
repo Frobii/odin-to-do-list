@@ -98,7 +98,7 @@ const taskFunctions = () => {
       dueDateElement.style.color = 'red';
     } else if (currentYear === dueYear
       && currentMonth === dueMonth
-      && currentDay === dueDay) {
+      && dueDay - currentDay < 2) {
       dueDateElement.style.color = 'red';
     }
   }
